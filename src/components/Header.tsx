@@ -2,25 +2,28 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-        <div className="text-lg font-medium text-foreground">
-          505 State Street
+        <div className="text-lg font-medium text-white">
+          Royal Global School
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Amenities
+          <button className="text-sm text-white/80 hover:text-white transition-colors">
+            Why RGS?
           </button>
-          <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Availability
+          <button className="text-sm text-white/80 hover:text-white transition-colors">
+            Admission
+          </button>
+          <button className="text-sm text-white/80 hover:text-white transition-colors">
+            Campus
           </button>
           <Button 
-            variant="default" 
+            variant="outline" 
             size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6"
+            className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm rounded-full px-6"
           >
-            Inquire
+            Enquire Now
           </Button>
         </nav>
       </div>

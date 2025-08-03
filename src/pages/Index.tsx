@@ -1,12 +1,13 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
-import AmenitiesSection from "@/components/AmenitiesSection";
+import SpotlightSection from "@/components/SpotlightSection";
 import InteriorGallery from "@/components/InteriorGallery";
-import LivingSection from "@/components/LivingSection";
-import FloorPlansSection from "@/components/FloorPlansSection";
-import CommunitySection from "@/components/CommunitySection";
-import LocationSection from "@/components/LocationSection";
+import VisionSection from "@/components/VisionSection";
+import VideoSection from "@/components/VideoSection";
+import LeadershipSection from "@/components/LeadershipSection";
+import AwardsSection from "@/components/AwardsSection";
+import NewsEventsSection from "@/components/NewsEventsSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,12 +16,13 @@ const Index = () => {
       <Header />
       <HeroSection />
       <IntroSection />
-      <AmenitiesSection />
+      <SpotlightSection />
       <InteriorGallery />
-      <LivingSection />
-      <FloorPlansSection />
-      <CommunitySection />
-      <LocationSection />
+      <VisionSection />
+      <VideoSection />
+      <LeadershipSection />
+      <AwardsSection />
+      <NewsEventsSection />
       <Footer />
     </div>
   );

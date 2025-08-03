@@ -20,22 +20,46 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center h-full px-6 max-w-7xl mx-auto">
         <div className="max-w-2xl">
+          <div className="flex items-center gap-8 mb-8">
+            <div className="text-center">
+              <div className="text-4xl md:text-6xl font-bold text-white">No1</div>
+              <div className="text-sm text-white/80">School of NorthEast</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-6xl font-bold text-white">1:12</div>
+              <div className="text-sm text-white/80">Teacher-student ratio</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-6xl font-bold text-white">20+</div>
+              <div className="text-sm text-white/80">Sports</div>
+            </div>
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-normal text-white leading-tight mb-6">
-            New York's First<br />
-            All-Electric Skyscraper
+            ROYAL GLOBAL<br />
+            SCHOOL
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-lg">
-            Carbon Neutral Living, Without Compromise
+            With Infinite Possibilities for inquisitive Minds
           </p>
           
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm rounded-full px-8"
-          >
-            View Available Units
-          </Button>
+          <div className="flex gap-4">
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm rounded-full px-8"
+            >
+              Enquire Now
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm rounded-full px-8"
+            >
+              Virtual Tour
+            </Button>
+          </div>
         </div>
       </div>
     </section>

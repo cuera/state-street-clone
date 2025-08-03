@@ -1,35 +1,49 @@
 const InteriorGallery = () => {
   const images = [
     {
-      src: "https://cdn.sanity.io/images/xem89js7/production/2d3089504fcd405cb8368287c01d709a69aea49f-6485x4944.jpg?w=800&q=75&auto=format",
-      alt: "Modern interior living space"
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-3-1.jpg",
+      alt: "Where Dreams Take Shape and Emotions Emerge",
+      caption: "Where Dreams Take Shape and Emotions Emerge"
     },
     {
-      src: "https://cdn.sanity.io/images/xem89js7/production/fca3c6d1f99d4cb2fb86c2b36ed4d9c945f7ae27-8131x6059.jpg?w=800&q=75&auto=format",
-      alt: "Contemporary kitchen"
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-20-1.jpg",
+      alt: "Our Modern-Equipped Classroom",
+      caption: "Our Modern-Equipped Classroom, Crafting Tomorrow's Leaders"
     },
     {
-      src: "https://cdn.sanity.io/images/xem89js7/production/683d91471183694bfb5879a7a1017648dfe73cf2-6544x4423.jpg?w=800&q=75&auto=format",
-      alt: "Elegant bedroom"
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-21-1.jpg",
+      alt: "Our library",
+      caption: "Our library: where pages turn into pathways of knowledge and imagination"
     },
     {
-      src: "https://cdn.sanity.io/images/xem89js7/production/1f9f8a72c1c6d6f250ea2ed21a4d4fabb8fb8766-6768x4512.jpg?w=800&q=75&auto=format",
-      alt: "Luxury bathroom"
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-24-1.jpg",
+      alt: "Biology Laboratory",
+      caption: "From Microscopes to Molecules: Our Biology Laboratory, Where Discovery Knows No Bounds"
     },
     {
-      src: "https://cdn.sanity.io/images/xem89js7/production/9e2b727866abcea049681f8cd6a82e595908bdc1-6324x4366.jpg?w=800&q=75&auto=format",
-      alt: "Living room with city view"
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-7-1.jpg",
+      alt: "Music Room",
+      caption: "Where Words Fail, Music Speaks"
+    },
+    {
+      src: "https://www.rgs.edu.in/wp-content/uploads/2024/06/RGSL-13-1.jpg",
+      alt: "Hostel Room",
+      caption: "Embracing Minimalism: Our Hostel Room at Royal Global School, Guwahati"
     }
   ];
 
   return (
     <section className="py-16 md:py-24 px-6 bg-muted">
       <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-normal text-foreground text-center mb-16">
+          Explore Life AT RGS
+        </h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
             <div 
               key={index} 
-              className={`overflow-hidden rounded-lg shadow-md ${
+              className={`relative overflow-hidden rounded-lg shadow-md group ${
                 index === 0 ? 'md:col-span-2 lg:col-span-1' : ''
               } ${
                 index === 2 ? 'lg:col-span-2' : ''
@@ -40,6 +54,13 @@ const InteriorGallery = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white text-sm font-medium">
+                    {image.caption}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -3,16 +3,19 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://cdn.sanity.io/images/xem89js7/production/fb66eccd39e4912232b6694ec7dd78772524bbad-2625x2083.jpg?w=1920&q=75&auto=format')`
-        }}
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40" />
-      </div>
+        <source src="https://res.cloudinary.com/dihcnrjri/video/upload/v1754217475/school_qq7a78.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40" />
       
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center h-full px-6 max-w-7xl mx-auto">

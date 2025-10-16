@@ -7,6 +7,14 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  /* Sofia Pro font (local public asset) */
+  @font-face {
+    font-family: 'Sofia Pro';
+    src: url('/Sofia%20Pro%20Medium%20Az.otf') format('opentype');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
@@ -53,6 +61,11 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Layout tokens (desktop) */
+    --nav-h: 80px;
+    --page-gutter: 13px;
+    --nav-inner-gap: 40px;
   }
 
   .dark {
@@ -101,5 +114,39 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Satoshi', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  }
+
+  /* Navigation button overrides */
+  .nav-button-amenities,
+  .nav-button-availability {
+    background-color: #c8d6e3 !important;
+    color: #2c3e50 !important;
+    border: none !important;
+  }
+
+  .nav-button-amenities:hover,
+  .nav-button-availability:hover {
+    background-color: #c8d6e3 !important;
+    color: #2c3e50 !important;
+    opacity: 0.8;
+  }
+
+  /* Link underline helper */
+  .link-underline { 
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 100%/0 2px; 
+    transition: background-size 300ms; 
+  }
+  .link-underline:hover { 
+    background-size: 100% 2px; 
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * { 
+      animation-duration: 0.001ms !important; 
+      animation-iteration-count: 1 !important; 
+      transition-duration: 0.001ms !important; 
+    }
   }
 }

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__browser-tools__takeScreenshot",
+      "mcp__fetch__imageFetch",
+      "WebFetch(domain:505statestreet.com)",
+      "Bash(rm:*)",
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(sed:*)",
+      "Bash(done)",
+      "mcp__filesystem__read_media_file",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(mv:*)",
+      "Bash(npx tsc:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": []
+  }
+}

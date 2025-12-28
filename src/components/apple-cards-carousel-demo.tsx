@@ -69,6 +69,12 @@ const DummyContent = () => {
 
 const data = [
   {
+    category: "Student Development",
+    title: "Nurturing Talent Through Comprehensive Programs.",
+    src: "/royal school carousel/malkin.avif",
+    content: <DummyContent />,
+  },
+  {
     category: "Neev Early Years Schooling",
     title: "Fosters cognitive, emotional, and social growth.",
     src: "/royal school carousel/EY schooling nursery best royal global.avif",
@@ -120,12 +126,6 @@ const data = [
     category: "AI Integration",
     title: "Building AI Capabilities.",
     src: "/royal school carousel/robo ai.avif",
-    content: <DummyContent />,
-  },
-  {
-    category: "Student Development",
-    title: "Nurturing Talent Through Comprehensive Programs.",
-    src: "/royal school carousel/malkin.avif",
     content: <DummyContent />,
   },
 ];

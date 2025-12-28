@@ -102,43 +102,66 @@ const EnrollwithRoyalGlobalSchool = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const submitToGoogleSheets = async (data: FormData) => {
+    // 1. Get URL from Env (or hardcode if testing)
+    const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbzOrRlxAyQmA2TNDY8uYXG8ctrnoJ7Re_iX6aJ4WDoaIKo7s1DjVFc10MrYbn1z0g6qdg/exec";
+
+    // 2. Prepare Payload
+    // Note: We send as Plain Text to bypass CORS flight checks
+    const payload = {
+      ...data,
+      pagePath: window.location.pathname,
+      userAgent: navigator.userAgent,
+    };
+
+    // 3. The "Blind" Send (no-cors)
+    // We cannot read the response (result.json), but the data WILL arrive.
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors", 
+      headers: {
+        "Content-Type": "text/plain", // Apps Script reads this easily now
+      },
+      body: JSON.stringify(payload),
+    });
+
+    // Since we use no-cors, we assume success if the line above didn't crash.
+    return true;
+  };
+
   const handleSubmit = () => {
+    if (!isValid()) {
+      toast.error("Please fill all required fields correctly.");
+      return Promise.resolve(); // keeps stateful Button happy
+    }
+
     setIsSubmitting(true);
-    // Set progress to 100% when form is submitted
-    setProgress(100);
-    
-    // Return a Promise for the stateful button
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        // Trigger confetti effect
+    setProgress(90); // show almost full while saving
+
+    return submitToGoogleSheets(formData)
+      .then(() => {
+        setProgress(100);
+
         confetti({
           particleCount: 100,
           spread: 70,
-          origin: { y: 0.6 }
+          origin: { y: 0.6 },
         });
-        
+
         toast.success(
           "Thank you for your interest in Royal Global School! Our admissions team has received your inquiry and will contact you within 2 working days. We look forward to speaking with you."
         );
-        setIsSubmitting(false);
         setIsSubmitted(true);
-        
-        // TODO: Future Google Sheets integration will go here
-        // const formDataForSheets = {
-        //   studentName: formData.studentName,
-        //   grade: formData.grade,
-        //   session: formData.session,
-        //   parentName: formData.parentName,
-        //   parentPhone: formData.parentPhone,
-        //   parentEmail: formData.parentEmail,
-        //   question: formData.question,
-        //   timestamp: new Date().toISOString()
-        // };
-        // await submitToGoogleSheets(formDataForSheets);
-        
-        resolve();
-      }, 1200);
-    });
+      })
+      .catch((error) => {
+        console.error("Error in form submission:", error);
+        toast.error(
+          "Something went wrong while submitting. Please try again after some time."
+        );
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const isValid = () => {
@@ -277,6 +300,29 @@ const EnrollwithRoyalGlobalSchool = () => {
                           Thank you for your interest in Royal Global School! Our admissions team has received your inquiry and will contact you within 2 working days. We look forward to speaking with you.
                         </CardDescription>
                       </CardHeader>
+                      <CardFooter className="flex justify-center pt-4 pb-4">
+                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          <Button 
+                            type="button" 
+                            onClick={() => {
+                              setIsSubmitted(false);
+                              setFormData({
+                                parentName: "",
+                                parentEmail: "",
+                                parentPhone: "",
+                                studentName: "",
+                                grade: "",
+                                session: "",
+                                question: "",
+                              });
+                              setProgress(0);
+                            }}
+                            className="bg-[#bdd663] hover:ring-[#bdd663] rounded-2xl"
+                          > 
+                            Submit Another Inquiry
+                          </Button>
+                        </motion.div>
+                      </CardFooter>
                     </motion.div>
                   )}
                 </AnimatePresence>
